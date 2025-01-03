@@ -10,6 +10,8 @@ print ("\nTest Pesan : ", p.mes(), "\n")
 
 # silahkan uji fungsi dan class anda dibawah
 # pastikan class dan fungsi sudah anda buat di modul_satu_pbo.py
+# ini kontribusi dari wulandari
+# main_pbo.py
 
 
 from modul_satu_pbo import Film, Jadwal, Pemesanan
