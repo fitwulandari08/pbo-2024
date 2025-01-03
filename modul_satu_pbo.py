@@ -13,38 +13,41 @@ class test:
 
 # silahkan lanjutkan dengan fungsi dan calss anda dibawah
 # pastikan untuk menguji class dan fungsi yang sudah di buat disini
+# ini kontribusi dari wulandarai
+# modul_satu_pbo.py
 
-class Sekolah:
-    def _init_(self, nama_sekolah, alamat):
-        self.nama_sekolah = nama_sekolah
-        self.alamat = alamat
-        self.guru = []
-        self.siswa = []
+class Film:
+    def __init__(self, judul, durasi, genre):
+        self.judul = judul
+        self.durasi = durasi  # Dalam menit
+        self.genre = genre
 
-    def tambah_guru(self, guru):
-        self.guru.append(guru)
-        print(f"Guru {guru.nama} berhasil ditambahkan ke {self.nama_sekolah}.")
+    def tampilkan_info(self):
+        return f"Film: {self.judul} | Durasi: {self.durasi} menit | Genre: {self.genre}"
 
-    def tambah_siswa(self, siswa):
-        self.siswa.append(siswa)
-        print(f"Siswa {siswa.nama} berhasil ditambahkan ke {self.nama_sekolah}.")
 
-    def daftar_guru(self):
-        print(f"Daftar Guru di {self.nama_sekolah}:")
-        for guru in self.guru:
-            print(f"- {guru.nama}, Mata Pelajaran: {guru.mata_pelajaran}")
+class Jadwal:
+    def __init__(self, film, waktu):
+        self.film = film
+        self.waktu = waktu  # Format: HH:MM
 
-    def daftar_siswa(self):
-        print(f"Daftar Siswa di {self.nama_sekolah}:")
-        for siswa in self.siswa:
-            print(f"- {siswa.nama}, Kelas: {siswa.kelas}")
+    def tampilkan_jadwal(self):
+        return f"{self.film.judul} - Jam: {self.waktu}"
 
-class Guru:
-    def _init_(self, nama, mata_pelajaran):
-        self.nama = nama
-        self.mata_pelajaran = mata_pelajaran
 
-class Siswa:
-    def _init_(self, nama, kelas):
-        self.nama = nama
-        self.kelas = kelas
+class Pemesanan:
+    def __init__(self):
+        self.riwayat_pemesanan = []
+
+    def pesan_tiket(self, jadwal, jumlah_tiket):
+        self.riwayat_pemesanan.append((jadwal, jumlah_tiket))
+        return f"Berhasil memesan {jumlah_tiket} tiket untuk film '{jadwal.film.judul}' pada jam {jadwal.waktu}"
+
+    def tampilkan_riwayat(self):
+        if not self.riwayat_pemesanan:
+            return "Belum ada pemesanan."
+
+        hasil = "Riwayat Pemesanan:\n"
+        for idx, (jadwal, jumlah_tiket) in enumerate(self.riwayat_pemesanan, start=1):
+            hasil += f"{idx}. {jadwal.film.judul} - Jam {jadwal.waktu} - {jumlah_tiket} tiket\n"
+        return hasil
