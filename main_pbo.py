@@ -11,21 +11,28 @@ print ("\nTest Pesan : ", p.mes(), "\n")
 # silahkan uji fungsi dan class anda dibawah
 # pastikan class dan fungsi sudah anda buat di modul_satu_pbo.py
 
-from modul1_pbo import Sekolah, Guru, Siswa
-# Membuat objek Sekolah
-sekolah = Sekolah("SMA Harapan Bangsa", "Jl. Pendidikan No. 10")
 
-# Membuat objek Guru
-guru1 = Guru("Budi Santoso", "Matematika")
-guru2 = Guru("Siti Rahmawati", "Bahasa Inggris")
+from modul_satu_pbo import Film, Jadwal, Pemesanan
+# Buat beberapa film
+film1 = Film("Avatar: The Way of Water", 192, "Fiksi Ilmiah")
+film2 = Film("Spider-Man: No Way Home", 148, "Aksi")
 
-# Membuat objek Siswa
-siswa1 = Siswa("Rina Putri", "10A")
-siswa2 = Siswa("Andi Saputra", "10B")
+# Jadwal
+jadwal1 = Jadwal(film1, "13:30")
+jadwal2 = Jadwal(film2, "16:00")
 
-# Menambahkan Guru dan Siswa ke Sekolah
-sekolah.tambah_guru(guru1)
-sekolah.tambah_guru(guru2)
+# Pemesanan
+sistem_pemesanan = Pemesanan()
 
-sekolah.tambah_siswa(siswa1)
-sekolah.tambah_siswa(siswa2)
+print(film1.tampilkan_info())
+print(film2.tampilkan_info())
+print(jadwal1.tampilkan_jadwal())
+print(jadwal2.tampilkan_jadwal())
+
+# Pemesanan tiket
+print(sistem_pemesanan.pesan_tiket(jadwal1, 2))
+print(sistem_pemesanan.pesan_tiket(jadwal2, 4))
+
+# Tampilkan riwayat pemesanan
+print(sistem_pemesanan.tampilkan_riwayat())
+
